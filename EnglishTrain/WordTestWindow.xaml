@@ -1,0 +1,70 @@
+﻿<Window x:Class="EnglishTrain.WordTestWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EnglishTrain"
+        mc:Ignorable="d" Background="Black" WindowStartupLocation="CenterScreen"
+        Title="單字訓練" Height="702" Width="1246">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="6*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Background="Black" Foreground="White" FontSize="57" Content="_Replay重播單字" Click="ReplayButton_Click"/>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <RadioButton Grid.Row="0" Name="GoogleRadioButton" Content="_Google發音" Foreground="White" FontSize="28" VerticalContentAlignment="Center" GroupName="voiceRadioButton" IsChecked="True" />
+                <RadioButton Grid.Row="1" Name="YahooRadioButton" Content="_Yahoo發音" Foreground="White" FontSize="28" VerticalContentAlignment="Center" GroupName="voiceRadioButton"/>
+            </Grid>
+            <Button Content="_Back↶" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="37" Click="BackButton_Click"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Name="wordLabel" Visibility="Hidden" Foreground="SkyBlue" FontSize="57" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                <Label Grid.Row="0" Name="ruleLabel1" Content="請先聽聲音，在內心猜想是什麼單字" Foreground="Yellow" FontSize="37" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                <Label Grid.Row="1" Name="phoneticSymbolLabel" Visibility="Hidden" Foreground="SpringGreen" FontSize="37" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                <Label Grid.Row="1" Name="ruleLabel2" Content="然後點選The next step" Foreground="Yellow" FontSize="37" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            </Grid>
+            <ScrollViewer Grid.Column="1" Name="chiMeanScrollViewer" Visibility="Hidden">
+                <TextBlock Name="ChiTextBlock" Foreground="PapayaWhip" FontSize="32"/>
+            </ScrollViewer>
+            <TextBlock Grid.Column="1" Name="ruleTextBlock1" Foreground="Yellow" Visibility="Hidden" FontSize="37" VerticalAlignment="Center" TextAlignment="Center">接著看英文單字<LineBreak/>猜想有哪些中文意思<LineBreak/>然後再按The next step<LineBreak/>下面例句區可閉眼按0~n數字播放<LineBreak/>猜想該句子英文與中文意思</TextBlock>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Name="UnfamiliarButton" Content="_Unfamiliar" FontSize="38" Foreground="White" Background="Black" IsEnabled="False" Click="UnfamiliarButton_Click"/>
+            <Button Grid.Column="1" Name="MediumButton" Content="_Medium" FontSize="38" Foreground="White" Background="Black" IsEnabled="False" Click="MediumButton_Click"/>
+            <Button Grid.Column="2" Name="FamiliarButton" Content="_Familiar" FontSize="38" Foreground="White" Background="Black" IsEnabled="False" Click="FamiliarButton_Click"/>
+        </Grid>
+        <Button Grid.Row="2" Name="NextButton" Content="_The next step" FontSize="45" Foreground="White" Background="Black" Visibility="Visible" Click="NextButton_Click"/>
+        <CheckBox Grid.Row="3" Name="SlowVoiceCheckBox" Content="_Slow慢速播放例句" Foreground="White" FontSize="28" IsChecked="False" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" IsEnabled="True"/>
+        <ScrollViewer Grid.Row="4">
+            <Grid Name="SentenceGrid"/>
+        </ScrollViewer>
+    </Grid>
+</Window>

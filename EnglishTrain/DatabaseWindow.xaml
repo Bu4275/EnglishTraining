@@ -1,0 +1,45 @@
+﻿<Window x:Class="EnglishTrain.DatabaseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EnglishTrain"
+        mc:Ignorable="d" Background="Black" WindowStartupLocation="CenterScreen"
+        Title="DatabaseWindow" Height="648" Width="1152">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" FontSize="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Black" Foreground="White" Content="搜尋單字"/>
+                <Button Grid.Row="0" FontSize="25" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Black" Foreground="White" Content="返回" Click="BackButton_Click"/>
+                <TextBox Grid.Row="1" Name="SearchTextBox" FontSize="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Black" Foreground="White" TextChanged="TextBox_TextChanged"/>
+            </Grid>
+            <Button Grid.Column="1" FontSize="50" Click="RemoveButton_Click" Content="刪除選取的單字" Foreground="White" Background="Black"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <ListBox Name="WordListBox" Grid.Column="0" FontSize="27" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Black" Foreground="White"/>
+            <ScrollViewer Grid.Column="1">
+                <TextBlock Name="explanationTextBlock" Foreground="White" FontSize="20"/>
+            </ScrollViewer>
+            <ScrollViewer Grid.Column="1">
+                <Grid Name="dataGrid"/>
+            </ScrollViewer>
+            
+        </Grid>
+    </Grid>
+</Window>
